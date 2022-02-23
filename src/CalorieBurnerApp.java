@@ -2,13 +2,18 @@ import javax.swing.JOptionPane;
 
 public class CalorieBurnerApp {
 	
-	
 	static class menu {
 		
 		// Variables
 		
 		public String input;
 		public String intensityInput;
+		public double caloriesBurned;
+		public double totalWorkoutTime;
+		public double totalCaloriesBurned;
+		
+		
+		// Main menu
 		
 		public void menuChoice() {
 			
@@ -27,44 +32,75 @@ public class CalorieBurnerApp {
 				switch(value) {
 				
 				case 1:
-					System.out.println("1");
+					bicycle bike = new bicycle();
 					
-					this.intensityInput = JOptionPane.showInputDialog("Your workout Intensity.\n\n Press 1: Moderate.\n Press 2: Vigorous.");
+					bike.run();
+					
+					totalCaloriesBurned += bike.caloriesBurned;
+					
+					menuChoice();
 					
 					break;
-				case 2:
-					System.out.println("2");
+				case 2:				
+					running runs = new running();
 					
-					this.intensityInput = JOptionPane.showInputDialog("Your workout Intensity.\n\n Press 1: Moderate.\n Press 2: Vigorous.");
+					runs.run();
+					
+					totalCaloriesBurned += runs.caloriesBurned;
+					
+					menuChoice();
 					
 					break;
 				case 3:
-					System.out.println("3");
+					swimming swim = new swimming();
 					
-					this.intensityInput = JOptionPane.showInputDialog("Your workout Intensity.\n\n Press 1: Moderate.\n Press 2: Vigorous.");
+					swim.run();
 					
-					break;
-				case 4: 
-					System.out.println("4");
+					totalCaloriesBurned += swim.caloriesBurned;
 					
-					this.intensityInput = JOptionPane.showInputDialog("Your workout Intensity.\n\n Press 1: Moderate.\n Press 2: Vigorous.");
-					
-					break;
-				case 5:
-					System.out.println("5");
-					
-					this.intensityInput = JOptionPane.showInputDialog("Your workout Intensity.\n\n Press 1: Moderate.\n Press 2: Vigorous.");
+					menuChoice();
+	
+					System.out.println("Total cals swimming burned: " + totalCaloriesBurned);
 					
 					break;
-				case 6:
-					System.out.println("6");
+				case 4: 			
+					walking walk = new walking();
+					
+					walk.run();
+					
+					totalCaloriesBurned += walk.caloriesBurned;
+					
+					menuChoice();
+					
+					System.out.println("Total cals walking burned: " + totalCaloriesBurned);
+					
+					break;
+				case 5:			
+					weights weight = new weights();
+					
+					weight.run();
+					
+					totalCaloriesBurned += weight.caloriesBurned;
+					
+					menuChoice();
+					
+					break;
+				case 6:			
+					exitProgram exitProgram = new exitProgram();
+					
+					System.out.println("Total cals burned: " + this.totalCaloriesBurned);
+					
+					exitProgram.finalResult();
 					
 					break;
 				}
+				
 			}
 			catch(NumberFormatException e) {
 				JOptionPane.showMessageDialog(menu, "Input is not valid, try again.");
 				System.out.println(value + "Is not a int");
+				
+				//menuChoice();
 			}
 		
 		}
