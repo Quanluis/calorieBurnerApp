@@ -6,12 +6,11 @@ public class exitProgram {
 	
 	public String x;
 	public String timespent;
-	public int totalCaloriesBurned;
-	
 	
 	public void finalResult() {
 		
-		JOptionPane.showMessageDialog(null, "Final result.\n Total calories burned: " + totalCaloriesBurned);
+		
+		JOptionPane.showMessageDialog(null, "Final result.\n Total calories burned: ");
 		
 		
 	}

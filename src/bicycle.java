@@ -6,7 +6,9 @@ public class bicycle {
 	
 	public String timeSpent;
 	public String intensityInput;
+	public double totalTimeSpent;
 	public double caloriesBurned;
+	public double totalworkoutBike;
 	public double moderate = 10;
 	public double vigorous = 14.3;
 	
@@ -29,6 +31,10 @@ public class bicycle {
 			
 			timeSpent = Integer.parseInt(this.timeSpent);
 			
+			totalTimeSpent += timeSpent;
+			
+			totalworkoutBike = timeSpent;
+			
 			caloriesBurned =  timeSpent * moderate;
 			
 			break;
@@ -40,6 +46,8 @@ public class bicycle {
 			double timeSpent1;
 			
 			timeSpent1 = Integer.parseInt(this.timeSpent);
+			
+			totalTimeSpent += timeSpent1;
 			
 			caloriesBurned = timeSpent1 * vigorous;
 			
